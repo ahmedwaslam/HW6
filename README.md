@@ -1,6 +1,7 @@
 # HW-6
 HW 6
 
+
 ````
 
 load("/cloud/project/acs2017_ny_data.RData")
@@ -176,6 +177,9 @@ AIC: 36721
 
 Number of Fisher Scoring iterations: 4
 
+
+Our model looked at the regression model of a gender when looking at indepdendent varialbes for education, marital status, poverty and Income. We determined that an advanced degree was the most influential indicator when determining gender in our linear regression model.  Inc and wage was most likely to indicate whether the pariticpant was male. 
+
 > model_probit <- glm(female ~ AGE + I(AGE^2) + educ_advdeg + POVERTY + INCWAGE + MARST,family = binomial (link = 'probit'), data = dat_use1)
 > 
 > summary(model_probit)
@@ -270,6 +274,14 @@ Number of cases in table: 5331
 Number of factors: 2 
 Test for independence of all factors:
 	Chisq = 111.84, df = 1, p-value = 3.88e-26
+
+sum_diag<-sum(diag(labormodel)) #the sum of the correct predict Numbers
+sum<-sum(labormodel) #the sum of predict Numbers
+sum_diag/sum
+
+Our probabilty of success was about 57.73 percent. 
+
+
 > Gendermodel
    
 
